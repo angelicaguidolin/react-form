@@ -4,10 +4,14 @@ export default  function App(){
   const [albumName, setAlbumName]= useState("")
   const handleSubmit = (e)=>{
     e.preventDefault();
+    const newAlbumList= [...albumList,albumName]
+  setAlbumList(newAlbumList)
   }
+  
+  
  return(
   <div>
-    <h1>ALbum da Comprare</h1>
+    <h1>Album da Comprare</h1>
     <ul>
       {
         albumList.map((album, index)=>(
@@ -18,8 +22,10 @@ export default  function App(){
     <h4>INSERICI UN NUOVO ALBUM</h4>
     <form onSubmit={handleSubmit}>
         <input type="text" value={albumName} onChange={(e)=>{setAlbumName(e.target.value);}}/>
+
+        <button type="submit">Inserisci</button>
     </form>
-    <button type="submit">Inserisci</button>
+    
   </div>
 )
 
